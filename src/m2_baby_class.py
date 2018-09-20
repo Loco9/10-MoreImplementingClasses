@@ -93,6 +93,27 @@ def main():
 #          """ Brief description of what objects of the class 'are'. """
 #
 ########################################################################
+class Baby(object):
+
+    def __init__(self, name):
+        self.name = name
+        print('Hello baby ' + name + '!')
+        self.call = 0
+
+    def feed_baby(self):
+        print('Thank you for feeding baby ' + self.name)
+
+    def hour_passes(self):
+        self.call = self.call + 1
+
+        if self.call == 1:
+            print('Baby ' + self.name + ' is sleeping')
+        elif self.call == 2:
+            print('Baby ' + self.name + ' is awake. Time for food')
+        elif self.call >= 3:
+            print('Baby ' + self.name + ' is CRYING uncontrollably! Feed the baby!')
+
+
 
 
 # ----------------------------------------------------------------------
