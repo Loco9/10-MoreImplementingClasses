@@ -590,7 +590,7 @@ class Line(object):
           :rtype: Point
         """
         # --------------------------------------------------------------
-        # TODO: 11.
+        # DONE: 11.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -599,6 +599,7 @@ class Line(object):
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
 
+        return Point((self.start.x + self.end.x) / 2, (self.start.y + self.end.y) / 2)
     def is_parallel(self, line2):
         """
         What comes in:
@@ -626,7 +627,7 @@ class Line(object):
           :rtype: bool
         """
         # --------------------------------------------------------------
-        # TODO: 12.
+        # DONE: 12.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -660,6 +661,13 @@ class Line(object):
         # and (usually) adequate to distinguish numbers that really
         # are different from each other.
         ################################################################
+
+        slope1 = self.slope()
+        slope2 = line2.slope()
+        if round(slope1, 12) == round(slope2, 12):
+            return True
+        else:
+            return False
 
     def reset(self):
         """
@@ -700,6 +708,7 @@ class Line(object):
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
 
+        
 
 ########################################################################
 # The TEST functions for the  Line  class begin here.
