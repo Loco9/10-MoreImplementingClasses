@@ -708,7 +708,12 @@ class Line(object):
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
 
-    
+        a = self.start
+        b = self.end
+
+        self.start = a
+        self.end = b
+
 
 ########################################################################
 # The TEST functions for the  Line  class begin here.
