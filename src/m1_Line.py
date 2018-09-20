@@ -708,7 +708,7 @@ class Line(object):
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
 
-        
+    
 
 ########################################################################
 # The TEST functions for the  Line  class begin here.
