@@ -22,7 +22,7 @@ def main():
     run_test_simple_t()
     run_test_set_colors()
     run_test_move_by()
-    # run_test_clone()
+    run_test_clone()
 
 
 def run_test_simple_t():
@@ -265,6 +265,7 @@ class CapitalT(object):
         self.h_rect = rg.Rectangle(rg.Point(self.h_rect.corner_1.x + dx, self.h_rect.corner_1.y + dy),
                                    rg.Point(self.h_rect.corner_2.x + dx, self.h_rect.corner_2.y + dy))
 
+
     def clone(self):
         """
         What comes in:
@@ -291,6 +292,16 @@ class CapitalT(object):
         #     run_test method in main. Compare the graphics window to
         #     clone.pdf.
         # --------------------------------------------------------------
+
+        h_rect = self.h_rect
+        v_rect = self.v_rect
+
+        self.h_rect = h_rect
+        self.v_rect = v_rect
+
+        self.set_colors(self.v_rect.fill_color, self.v_rect.outline_color)
+        self.set_colors(self.h_rect.fill_color, self.h_rect.outline_color)
+
 
 
 # ----------------------------------------------------------------------
