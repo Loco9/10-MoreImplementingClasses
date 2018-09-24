@@ -252,7 +252,7 @@ class CapitalT(object):
           :type dy: int
         """
         # --------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
@@ -260,11 +260,17 @@ class CapitalT(object):
         #     that the T moves through, but there is only 1 T at any moment.
         # --------------------------------------------------------------
 
-        self.v_rect = rg.Rectangle(rg.Point(self.v_rect.corner_1.x + dx, self.v_rect.corner_1.y + dy),
-                                   rg.Point(self.v_rect.corner_2.x + dx, self.v_rect.corner_2.y + dy))
-        self.h_rect = rg.Rectangle(rg.Point(self.h_rect.corner_1.x + dx, self.h_rect.corner_1.y + dy),
-                                   rg.Point(self.h_rect.corner_2.x + dx, self.h_rect.corner_2.y + dy))
+        self.h_rect.corner_1.x = self.h_rect.corner_1.x + dx
+        self.h_rect.corner_1.y = self.h_rect.corner_1.y + dy
 
+        self.h_rect.corner_2.x = self.h_rect.corner_2.x + dx
+        self.h_rect.corner_2.y = self.h_rect.corner_2.y + dy
+
+        self.v_rect.corner_1.x = self.v_rect.corner_1.x + dx
+        self.v_rect.corner_1.y = self.v_rect.corner_1.y + dy
+
+        self.v_rect.corner_2.x = self.v_rect.corner_2.x + dx
+        self.v_rect.corner_2.y = self.v_rect.corner_2.y + dy
 
     def clone(self):
         """
@@ -286,21 +292,22 @@ class CapitalT(object):
           :rtype: CapitalT
         """
         # --------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
         #     clone.pdf.
         # --------------------------------------------------------------
 
-        h_rect = self.h_rect
-        v_rect = self.v_rect
+        intersection_point = self.h_rect.get_center()
+        width = self.h_rect.get_width()
+        height = self.v_rect.get_height()
+        thickness = self.v_rect.get_width()
 
-        self.h_rect = h_rect
-        self.v_rect = v_rect
+        T = CapitalT(intersection_point, width, height, thickness)
+        T.set_colors(self.v_rect.fill_color, self.v_rect.outline_color)
 
-        self.set_colors(self.v_rect.fill_color, self.v_rect.outline_color)
-        self.set_colors(self.h_rect.fill_color, self.h_rect.outline_color)
+        return T
 
 
 
