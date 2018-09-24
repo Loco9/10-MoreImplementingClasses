@@ -228,8 +228,8 @@ class Line(object):
         self.start = start.clone()
         self.end = end.clone()
         self.clone_total = 0
-        self.starti = start.clone()
-        self.endi = end.clone()
+        self.starti = self.start
+        self.endi = self.end
 
     def __repr__(self):
         """
